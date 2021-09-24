@@ -8,24 +8,14 @@ const devConfig: any = {
   mode: 'development',
   output: {
     filename: '[name].js',
-    publicPath: 'http://127.0.0.1:7777/',
+    publicPath: 'http://127.0.0.1:7776/',
   },
-
-  module: {
-    rules: [
-      {
-        test: /\.css$/,
-        use: ['style-loader', 'css-loader'],
-      },
-    ],
-  },
-
   devServer: {
     static: {
       directory: path.join(__dirname, '../public'),
     },
     compress: true,
-    port: 7777,
+    port: 7776,
     hot: true,
     headers: { 'Access-Control-Allow-Origin': '*' },
   },
