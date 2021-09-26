@@ -4,7 +4,11 @@ import styles from './index.module.less';
 
 function CommunityApp() {
   return (
-    <div className={styles.commonStyle}>this is Community App hello Rivery1 update 11222</div>
+    <div className={styles.commonStyle}>
+      this is Community App hello Rivery1 update 11222 test
+
+      update community
+    </div>
   )
 }
 
