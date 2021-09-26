@@ -9,10 +9,12 @@ const baseConifg: Configuration = {
       {
         test: /\.(js|jsx|ts|tsx)$/,
         use: [
-          'babel-loader',
           {
-            loader: 'ts-loader',
-          },
+            loader: 'babel-loader',
+            options: {
+              presets: ['@babel/preset-env', '@babel/preset-typescript', '@babel/preset-react']
+            }
+          }
         ],
         include: path.join(__dirname, `../src`),
       },
