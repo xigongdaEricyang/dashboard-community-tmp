@@ -15,7 +15,7 @@ app.use(
   webpackDevMiddleware(compiler, {
     publicPath: config.output.publicPath,
     index: 'index.html',
-    headers: { 'X-Custom-Header': 'yes' },
+    // headers: { 'X-Custom-Header': 'yes' },
   })
 );
 
@@ -33,7 +33,14 @@ app.use('/api-nebula/*', createProxyMiddleware({
     '/api-nebula': '/api',
   },
   changeOrigin: true,
-}))
+}));
+
+// app.get('/*', (req, _res, next) => {
+//   if (!req.url.match('static') && !req.url.match('/__webpack_hmr') && !req.url.match('bundle.js')) {
+//       req.url = '/'; 
+//   }
+//   next();
+// });
 
 app.get('/api/app', (_req, res) => {
   res.send({
