@@ -30,8 +30,6 @@ const publicConfig: Configuration = {
     minimizer: [
       new TerserPlugin(),
     ],
-    // namedModules: true,
-    // namedChunks: true,
     runtimeChunk: {
       name: 'manifest',
     },

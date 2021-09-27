@@ -1,6 +1,5 @@
 import path from 'path';
 import { Configuration } from 'webpack';
-import htmlWebpackPlugin from 'html-webpack-plugin';
 
 const baseConifg: Configuration = {
   // entry: [path.join(__dirname, `../src/index.tsx`)],
@@ -12,7 +11,20 @@ const baseConifg: Configuration = {
           {
             loader: 'babel-loader',
             options: {
-              presets: ['@babel/preset-env', '@babel/preset-typescript', '@babel/preset-react']
+              presets: [
+                '@babel/preset-env', 
+                '@babel/preset-typescript', 
+                '@babel/preset-react',
+              ],
+              plugins: [
+                [
+                  'import',
+                  {
+                    "libraryName": "antd",
+                    "style": true,   // or 'css'
+                  }
+                ]
+              ]
             }
           }
         ],
@@ -62,14 +74,12 @@ const baseConifg: Configuration = {
     ]
   },
   resolve: {
-    extensions: ['.tsx', '.ts', '.jsx', '.js', '.json', '.less']
+    extensions: ['.tsx', '.ts', '.jsx', '.js', '.json', '.less'],
+    alias: {
+      "@": path.join(__dirname, "../src"), 
+    }
   },
-  plugins: [
-    new htmlWebpackPlugin({
-      template: path.join(__dirname, '../src/index.html'),
-      title: 'Nebula Dashboard'
-    })
-  ]
+  plugins: []
 };
 
 export {
